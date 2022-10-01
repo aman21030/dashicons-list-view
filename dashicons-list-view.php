@@ -20,6 +20,7 @@ class Dashicons_List_View {
 		$data = get_file_data( __FILE__, array( 'version' => 'Version', 'text_domain' => 'Text Domain' ) );
 		$this->text_domain = isset( $data['text_domain'] ) ? $data['text_domain'] : '';
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_shortcode( $this->text_domain, array( $this, 'short_code_init' ) );
 	}
 
 	public function admin_menu () {
@@ -45,5 +46,28 @@ class Dashicons_List_View {
 	public function register_page_render () {
 		require_once( plugin_dir_path (__FILE__) . 'includes/dashicons-list-view-register.php' );
 		new Dashicons_List_View_Register();
+	}
+
+	public function short_code_init() {
+		$sns = get_option( 'dashicons-list-view' );
+		var_dump($sns);
+		$html  = '';
+		if ( $sns ){
+			$html .= '<ul>';
+			$html .= '<li>';
+			$html .= '<a href="https://twitter.com/' . $sns['twitter_account'] . ' target="_blank">';
+			$html .= '<span class="dashicons dashicons-twitter footer-icon" style="color:' . $sns['twitter_color'] . '"></span>';
+			$html .= '<span style="color:' . $sns['twitter_color'] . '">' . $sns['twitter_account'] . '</span>';
+			$html .= '</a>';
+			$html .= '</li>';
+			$html .= '<li>';
+			$html .= '<a href="https://twitter.com/' . $sns['twitter_account'] . ' target="_blank">';
+			$html .= '<span class="dashicons dashicons-twitter footer-icon" style="color:' . $sns['twitter_color'] . '"></span>';
+			$html .= '<span style="color:' . $sns['twitter_color'] . '">' . $sns['twitter_account'] . '</span>';
+			$html .= '</a>';
+			$html .= '</li>';
+			$html .= '</ul>';
+		}
+		return $html;
 	}
 }
