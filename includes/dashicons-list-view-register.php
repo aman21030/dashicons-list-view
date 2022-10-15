@@ -1,6 +1,6 @@
 <?php
 class Dashicons_List_View_Register {
-    private $option = 'dashicons_list_view';
+    private $option = 'dashicons-list-view';
     private $update_flag = false;
     public function __construct() {
         $this->update();
@@ -61,44 +61,85 @@ class Dashicons_List_View_Register {
         $html  = '<table>';
         $html .= '<tr>';
         $html .= '<th>&nbsp;</th>';
+        $html .= '<th>Enabled</th>';
         $html .= '<th>Account</th>';
         $html .= '<th>Size</th>';
         $html .= '<th>Color</th>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '<th><label for="twitter_account">Twitter</label></th>';
+        echo $html;
+        $html  = '<td><input type="checkbox" name="twitter_display" id="twitter_display"';
+        if ( isset( $args['twitter_display'] ) && $args['twitter_display'] === 'on' ) {
+            $html .= ' checked>';
+        } else {
+            $html .= '>';
+        }
+        $html .= '<label for="twitter_display">Enabled</label></td>';
         $html .= '<td><input type="text" name="twitter_account" id="twitter_account" maxlength="30" value="' . $args['twitter_account'] . '"></td>';
         $html .= '<td>W:<input type="number" name="twitter_size_w" maxlength="3" value="' . $args['twitter_size_w'] . '">';
         $html .= 'H:<input type="number" name="twitter_size_h" maxlength="3" value="' . $args['twitter_size_h'] . '"></td>';
-        $html .= '<td><input type="text" name="twitter_color" id="twitter-color-picker" value="' . $args['twitter_color'] . '"></td>';
+        $html .= '<td><input type="color" name="twitter_color" value="' . $args['twitter_color'] . '"></td>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '<th><label for="facebook_account">Facebook</label></th>';
+        echo $html;
+        $html  = '<td><input type="checkbox" name="facebook_display" id="facebook_display"';
+        if ( isset( $args['facebook_display'] ) && $args['facebook_display'] === 'on' ) {
+            $html .= ' checked>';
+        } else {
+            $html .= '>';
+        }
+        $html .= '<label for="facebook_display">Enabled</label></td>';
         $html .= '<td><input type="text" name="facebook_account" id="facebook_account" maxlength="30" value="' . $args['facebook_account'] . '"></td>';
         $html .= '<td>W:<input type="number" name="facebook_size_w" maxlength="3" value="' . $args['facebook_size_w'] . '">';
         $html .= 'H:<input type="number" name="facebook_size_h" maxlength="3" value="' . $args['facebook_size_h'] . '"></td>';
-        $html .= '<td><input type="text" name="facebook_color" id="facebook-color-picker" value="' . $args['facebook_color'] . '"></td>';
+        $html .= '<td><input type="color" name="facebook_color" value="' . $args['facebook_color'] . '"></td>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '<th><label for="instagram_account">Instagram</label></th>';
+        echo $html;
+        $html  = '<td><input type="checkbox" name="instagram_display" id="instagram_display"';
+        if ( isset( $args['instagram_display'] ) && $args['instagram_display'] === 'on' ) {
+            $html .= ' checked>';
+        } else {
+            $html .= '>';
+        }
+        $html .='<label for="instagram_display">Enabled</label></td>';
         $html .= '<td><input type="text" name="instagram_account" id="instagram_account" maxlength="30" value="' . $args['instagram_account'] . '"></td>';
         $html .= '<td>W:<input type="number" name="instagram_size_w" maxlength="3" value="' . $args['instagram_size_w'] . '">';
         $html .= 'H:<input type="number" name="instagram_size_h" maxlength="3" value="' . $args['instagram_size_h'] . '"></td>';
-        $html .= '<td><input type="text" name="instagram_color" id="instagram-color-picker" value="' . $args['instagram_color'] . '"></td>';
+        $html .= '<td><input type="color" name="instagram_color" value="' . $args['instagram_color'] . '"></td>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '<th><label for="youtube_account">YouTube</label></th>';
+        echo $html;
+        $html  = '<td><input type="checkbox" name="youtube_display" id="youtube_display"';
+        if ( isset( $args['youtube_display'] ) && $args['youtube_display'] === 'on' ) {
+            $html .= ' checked>';
+        } else {
+            $html .= '>';
+        }
+        $html .= '<label for="youtube_display">Enabled</label></td>';
         $html .= '<td><input type="text" name="youtube_account" id="youtube_account" maxlength="30" value="' . $args['youtube_account'] . '"></td>';
         $html .= '<td>W:<input type="number" name="youtube_size_w" maxlength="3" value="' . $args['youtube_size_w'] . '">';
         $html .= 'H:<input type="number" name="youtube_size_h" maxlength="3" value="' . $args['youtube_size_h'] . '"></td>';
-        $html .= '<td><input type="text" name="youtube_color" id="youtube-color-picker" value="' . $args['youtube_color'] . '"></td>';
+        $html .= '<td><input type="color" name="youtube_color" value="' . $args['youtube_color'] . '"></td>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '<th><label for="pinterest_account">Pinterest</label></th>';
+        echo $html;
+        $html  = '<td><input type="checkbox" name="pinterest_display" id="pinterest_display"';
+        if ( isset( $args['pinterest_display'] ) && $args['pinterest_display'] === 'on' ) {
+            $html .= ' checked>';
+        } else {
+            $html .= '>';
+        }
+        $html .= '<label for="pinterest_display">Enabled</label></td>';
         $html .= '<td><input type="text" name="pinterest_account" id="pinterest_account" maxlength="30" value="' . $args['pinterest_account'] . '"></td>';
         $html .= '<td>W:<input type="number" name="pinterest_size_w" maxlength="3" value="' . $args['pinterest_size_w'] . '">';
         $html .= 'H:<input type="number" name="pinterest_size_h" maxlength="3" value="' . $args['pinterest_size_h'] . '"></td>';
-        $html .= '<td><input type="text" name="pinterest_color" id="pinterest-color-picker" value="' . $args['pinterest_color'] . '"></td>';
+        $html .= '<td><input type="color" name="pinterest_color" value="' . $args['pinterest_color'] . '"></td>';
         $html .= '</tr>';
         $html .= '</table>';
         $html .= '<input type="submit" value="update" name="submit">';
