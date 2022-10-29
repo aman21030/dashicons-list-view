@@ -1,3 +1,10 @@
-th {
+#sort {
+    border-collapse: collapse;
+}
+#sort th {
     color: blue;
+}
+#sort th, #sort td {
+    border: 1px solid #ccc;
+    padding: 5px;
 }

@@ -58,7 +58,7 @@ class Dashicons_List_View_Register {
         $html  = '<form method="POST" action="">';
         echo $html;
         wp_nonce_field( 'list_view_action', 'list_view_field' );
-        $html  = '<table>';
+        $html  = '<table id="sort">';
         $html .= '<tr>';
         $html .= '<th>&nbsp;</th>';
         $html .= '<th>Enabled</th>';

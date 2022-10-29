@@ -32,10 +32,16 @@ class Dashicons_List_View {
 			array( $this, 'register_page_render' )
 		);
 		add_action( 'admin_print_styles-'  . $list_view_register, array( $this, 'admin_style' ) );
+		add_action( 'admin_print_scripts-'  . $list_view_register, array( $this, 'admin_script' ) );
 	}
 
 	public function admin_style () {
 		wp_enqueue_style( 'list_view_style', plugins_url( 'style.css', __FILE__ ) );
+	}
+
+	public function admin_script () {
+		wp_enqueue_script( 'jquery-ui-sortable' );
+		wp_enqueue_script( 'register-list-js', plugins_url( 'script.js', __FILE__ ), array( 'jquery', 'jquery-ui-sortable' ), '1.0.0', true );
 	}
 
 	public function register_page_render () {
