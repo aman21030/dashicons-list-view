@@ -1,5 +1,10 @@
 ;(function($){
     $(function(){
         $("#sort").sortable();
+        $('#sort').bind('sortstop',function(){
+            $(this).find('[name="num"]').each(function(index){
+                $(this).text(index+1);
+            });
+        });
     });
 })(jQuery);
