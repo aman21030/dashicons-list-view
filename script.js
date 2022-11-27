@@ -4,6 +4,7 @@
         $('#sort').bind('sortstop',function(){
             $(this).find('[name="num"]').each(function(index){
                 $(this).text(index+1);
+                $(this).children('input').val(index+1);
             });
         });
     });
