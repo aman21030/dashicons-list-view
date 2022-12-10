@@ -15,17 +15,21 @@ class Dashicons_List_View_Register {
             } else {  
                 unset($_POST['list_view_field']);
                 unset($_POST['_wp_http_referer']);
+                unset($_POST['submit']);
                 $this->update_flag = update_option( $this->option, $_POST );
             }  
         }
     }
 
     private function init_data() {
-        $args['num']     = '';
-        $args['account'] = '';
-        $args['size_w']  = '';
-        $args['size_h']  = '';
-        $args['color']   = '';
+        $sns = ['twitter', 'facebook', 'instagram', 'youtube', 'pinterest','line'];
+        $args = [];
+        foreach($sns as $value){
+            $args[$value]['account'] = '';
+            $args[$value]['size_w']  = '';
+            $args[$value]['size_h']  = '';
+            $args[$value]['color']   = '';
+        }
         return $args;
     }
 
@@ -35,6 +39,14 @@ class Dashicons_List_View_Register {
         if ( !$args ) {
             $args = $this->init_data();
         }
+        if( !array_search('line', array_column($args, 0)) ) {
+            $args['line']['size_w']  = '';
+            $args['line']['size_h']  = '';
+            $args['line']['account'] = '';
+            $args['line']['color']   = '';
+        }
+        
+
 
         $html  = '<div class="wrap">';
         $html .= '<h1>Dashicons List View Register</h1>';
@@ -60,9 +72,10 @@ class Dashicons_List_View_Register {
         $html .= '<tbody id="sort">';
         echo $html;
         
-        $sns = ['twitter', 'facebook', 'instagram', 'youtube', 'pinterest'];
-        foreach ($sns as $index => $value) {
-            echo $this->table_row( $index+1, $value, $args[$value] );
+
+        $num = 1;
+        foreach ($args as $index => $value) {
+            echo $this->table_row( $num++, $index, $value );
         }
         $html  = '</tbody>';
         $html .= '</table>';
